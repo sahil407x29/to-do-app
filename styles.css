@@ -123,8 +123,8 @@ main {
 }
 
 .check-icon{
-  display: none;
-  .
+  display: block;
+  
 }
 @media (max-width: 768px) {
     .title {
