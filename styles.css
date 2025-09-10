@@ -44,6 +44,7 @@ main {
   height: 35px;
   background-color: rgba(72, 163, 0, 0.1);
   border-radius: 15px;
+  margin-bottom: 42px;
 }
 
 .progress-value {
@@ -63,6 +64,12 @@ main {
 .error-label {
   font-size: 14px;
   color: #ff5151;
+  margin-top: 10px;
+  display: none;
+}
+
+.show-error .error-label{
+  display: block;
 }
 
 .goal-container {
@@ -73,7 +80,7 @@ main {
   padding: 0 22px;
   gap: 25px;
   height: 82px;
-  margin-bottom: 82px;
+  margin-bottom: 44px;
   background-color: #FFFFFF;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
 }
@@ -94,6 +101,7 @@ main {
     font-size: 16px;
     /* background-color: pink; */
     flex-grow: 1;
+    font-weight: 500;
 
 }
 
@@ -120,12 +128,19 @@ main {
    display: flex;
    justify-content: center;
    align-items: center;
+   
 }
 
 .check-icon{
+  display: none;
+}
+.completed .check-icon{
   display: block;
-  
-  
+}
+
+.completed .goal-input{
+  color: #48a300;
+  text-decoration-line: line-through;
 }
 @media (max-width: 768px) {
     .title {
