@@ -4,6 +4,23 @@ const error = document.querySelector('.error-label')
 const showError = document.querySelector('.show-error')
 const progress = document.querySelector('.progress-bar')
 
+
+let allGoals = JSON.parse(localStorage.getItem('allGoals')) || {}
+// let allGoals = {
+//    first : {
+//     name: "",
+//     completed: ""
+//    },
+//    second : {
+//     name :'',
+//     completed: ""
+//    },
+//    third : {
+//     name : '',
+//     completed : ''
+//    }
+// }
+
 checkBoxList.forEach((checkbox) => {
     checkbox.addEventListener("click",(e) => {
         const allGoalsAdded = [...inputFeilds].every((input)=> {
@@ -19,11 +36,32 @@ checkBoxList.forEach((checkbox) => {
 })
 
 inputFeilds.forEach((input)=> {
+    if (allGoals[input.id]) {
+        input.value = allGoals[input.id].name;
+    }
+    
+    // console.log(allGoals[input.id])
     input.addEventListener('focus',(e)=>{
         progress.classList.remove('show-error')
 
     })
+
+    input.addEventListener('input', (e) => {
+        // allGoals[e.target.id]= e.target.value;
+     
+        allGoals[e.target.id] = { 
+            name : e.target.value,
+            completed : false
+
+        }
+        localStorage.setItem('allGoals', JSON.stringify(allGoals))
+        // console.log(allGoals)
+    
+    })
 })
+
+
+
 
 // some()
 // Purpose: Tests whether at least one element in the array satisfies the provided condition.
