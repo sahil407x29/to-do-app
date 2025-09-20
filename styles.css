@@ -59,8 +59,11 @@ main {
   /* justify-content: center; */
   align-items: center;
   padding-left: 2.5rem;
+  transition: width 0.2s ease-in-out;
 }
-
+.progress-value span {
+  min-width: max-content;
+}
 .error-label {
   font-size: 14px;
   color: #ff5151;
