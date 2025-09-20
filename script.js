@@ -57,9 +57,13 @@ checkBoxList.forEach((checkbox) => {
 
 inputFeilds.forEach((input)=> {
     // that
-    if(allGoals[input.id].completed){
-        input.parentElement.classList.add('completed')
-    }
+  if (allGoals[input.id]) {
+  input.value = allGoals[input.id].name
+  if (allGoals[input.id].completed) {
+    input.parentElement.classList.add('completed')
+  }
+}
+
     if(allGoals[input.id]) {
         input.value = allGoals[input.id].name;
     }
@@ -71,7 +75,7 @@ inputFeilds.forEach((input)=> {
     })
     
     input.addEventListener('input',(e)=>{
-        if(allGoals[input.id].completed){
+        if(allGoals[input.id] && allGoals[input.id].completed){
              e.target.value = allGoals[input.id].name
              return
         }
