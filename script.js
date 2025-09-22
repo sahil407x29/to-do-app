@@ -19,10 +19,10 @@ let allGoals = JSON.parse(localStorage.getItem('allGoals')) || {}
 const completedGoalsCount = Object.values(allGoals).filter((goal)=> goal.completed).length
 
 // Update progress bar width based on completed goals
-progress.style.width = `${completedGoalsCount/3 * 100}%`
+progress.style.width = `${completedGoalsCount/inputFeilds.length * 100}%`
 
 // Update progress text inside the bar (e.g., "1/3 Completed")
-progress.firstElementChild.innerText = `${completedGoalsCount}/3 Completed`
+progress.firstElementChild.innerText = `${completedGoalsCount}/${inputFeilds.length}Completed`
 
 // Show a motivational quote depending on progress
 label.innerText = allQuotes[completedGoalsCount];
@@ -51,8 +51,8 @@ checkBoxList.forEach((checkbox) => {
             const completedGoalsCount = Object.values(allGoals).filter((goal)=> goal.completed).length
 
             // Update progress bar again
-            progress.style.width = `${completedGoalsCount/3 * 100}%`
-            progress.firstElementChild.innerText = `${completedGoalsCount}/3 Completed`
+           progress.style.width = `${completedGoalsCount/inputFeilds.length * 100}%`
+           progress.firstElementChild.innerText = `${completedGoalsCount}/${inputFeilds.length}Completed`
 
             // Update motivational text again
             label.innerText = allQuotes[completedGoalsCount];
